@@ -1,2 +1,2 @@
 # php-crud
-Add, delete, edit and update tasks
+Create, delete, edit and update tasks and descriptions.

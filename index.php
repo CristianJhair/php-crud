@@ -10,18 +10,12 @@
     <div class="col-md-4">
 
       <?php if (isset($_SESSION['message'])) { ?>
-        <div class="alert alert-<?= $_SESSION['message_type_1']?> alert-dismissible fade show" role="alert">
+        <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
             <?= $_SESSION['message'] ?>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       <?php session_unset(); } ?>
-
-      <?php if (isset($_SESSION['message_alert'])) { ?>
-        <div class="alert alert-<?= $_SESSION['message_type_2']?> alert-dismissible fade show" role="alert">
-            <?= $_SESSION['message_alert'] ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php session_unset(); } ?>
+      
       <div class="card card-body">
         <form action="save_task.php" method="POST">
           <div class="form-group">
@@ -56,7 +50,12 @@
                 <td> <?php echo $row['description'] ?></td>
                 <td> <?php echo $row['created_at'] ?></td>
                 <td> 
-
+                  <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <a href="delete_task.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
+                    <i class="bi bi-trash-fill"></i>
+                  </a>
                 </td>
               </tr>
 

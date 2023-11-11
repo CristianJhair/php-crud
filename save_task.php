@@ -15,14 +15,14 @@ if(isset($_POST['save_task'])){
     }
     //Crear dos variables de sesión cuando esté iniciada y haya resuelto el query satisfactoriamente
     $_SESSION['message']='Task saved sucessfully';
-    $_SESSION['message_type_1']='success';
+    $_SESSION['message_type']='success';
 
     header("Location: index.php");
     
   }
   else {
-    $_SESSION['message_alert']='Please write a task or a description ';
-    $_SESSION['message_type_2']='warning';
+    $_SESSION['message']='Please write a task or a description ';
+    $_SESSION['message_type']='warning';
 
     header("Location: index.php");
   }
